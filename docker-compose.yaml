@@ -1,0 +1,13 @@
+services:
+  portfolio:
+    build: .
+    container_name: portfolio
+    restart: unless-stopped
+    ports:
+      - "3000"
+    networks:
+      - veyra-network
+
+networks:
+  veyra-network:
+    external: true
