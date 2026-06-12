@@ -77,8 +77,8 @@ export const learningTopics = [
 export const contactMethods = [
   {
     label: "Email",
-    value: "hello@darilnofriansyah.dev",
-    href: "mailto:hello@darilnofriansyah.dev",
+    value: "darilnofriansyah@gmail.com",
+    href: "mailto:darilnofriansyah@gmail.com",
   },
   {
     label: "GitHub",
@@ -87,7 +87,7 @@ export const contactMethods = [
   },
   {
     label: "LinkedIn",
-    value: "linkedin.com/in/darilnofriansyah",
-    href: "https://www.linkedin.com/in/darilnofriansyah",
+    value: "linkedin.com/in/daril-nofriansyah",
+    href: "https://www.linkedin.com/in/daril-nofriansyah",
   },
 ] as const;

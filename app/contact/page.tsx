@@ -62,7 +62,7 @@ export default function ContactPage() {
           </div>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href="mailto:hello@darilnofriansyah.dev"
+              href="mailto:darilnofriansyah@gmail.com"
               className="inline-flex h-12 items-center justify-center rounded-full bg-cyan-300 px-6 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(103,232,249,0.22)] transition-transform hover:-translate-y-0.5 hover:bg-cyan-200"
             >
               Email Daril
