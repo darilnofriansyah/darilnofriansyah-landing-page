@@ -66,7 +66,7 @@ export default function RootLayout({
           <footer>
             <div className="mx-auto flex w-full max-w-6xl flex-col gap-2 px-6 py-6 text-sm text-slate-400 lg:flex-row lg:items-center lg:justify-between lg:px-8">
               <p>Daril Nofriansyah</p>
-              <p>Light-blue neon visuals, clean structure, and fast delivery.</p>
+              <p>Building & Learning.</p>
             </div>
           </footer>
         </div>
