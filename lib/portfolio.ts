@@ -22,13 +22,26 @@ export const capabilities = [
 
 export const featuredProjects = [
   {
+    title: "Aegis",
+    type: "Monitoring bot",
+    href: "/projects/aegis",
+    summary:
+      "A Telegram bot for system monitoring, starting with n8n workflow error notifications so failed automations are surfaced quickly in chat.",
+    impact:
+      "Turns silent workflow failures into clear operational alerts, helping small automation stacks recover faster and stay visible.",
+    stack: ["Telegram Bot", "n8n", "System Monitoring"],
+    image: "/idcard/idcard_aegis.png",
+  },
+  {
     title: "Veyra",
     type: "Automation product",
+    href: "/projects/veyra",
     summary:
       "A Telegram financial assistant coach powered by an n8n workflow system, designed to help users reflect on spending and build better money habits.",
     impact:
       "Explores conversational guidance, workflow automation, and practical personal finance support inside a familiar chat interface.",
     stack: ["Telegram", "n8n", "Workflow Automation"],
+    image: "/idcard/idcard_veyra.png",
   },
   {
     title: "Daril Nofriansyah Portfolio",

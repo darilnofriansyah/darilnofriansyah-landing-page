@@ -2,6 +2,13 @@ import Link from "next/link";
 import { capabilities, featuredProjects, site } from "@/lib/portfolio";
 import Image from "next/image";
 
+const mainProject =
+  featuredProjects.find((project) => project.title === "Veyra") ??
+  featuredProjects[0];
+const secondaryProjects = featuredProjects.filter(
+  (project) => project.title !== mainProject.title,
+);
+
 export default function Home() {
   return (
     <div className="page-enter mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-10 lg:px-8 lg:py-16">
@@ -84,7 +91,7 @@ export default function Home() {
                 Current project
               </p>
               <h2 className="mt-3 text-3xl font-semibold text-white">
-                {featuredProjects[0].title}
+                {mainProject.title}
               </h2>
             </div>
             <Link
@@ -97,11 +104,11 @@ export default function Home() {
           </div>
 
           <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-300">
-            {featuredProjects[0].summary}
+            {mainProject.summary}
           </p>
 
           <div className="mt-7 flex flex-wrap gap-2">
-            {featuredProjects[0].stack.map((item) => (
+            {mainProject.stack.map((item) => (
               <span
                 key={item}
                 className="rounded-full bg-[#091322]/80 px-3 py-1.5 text-xs text-slate-200"
@@ -113,9 +120,10 @@ export default function Home() {
         </article>
 
         <div className="grid gap-4">
-          {featuredProjects.slice(1).map((project) => (
-            <article
+          {secondaryProjects.map((project) => (
+            <Link
               key={project.title}
+              href={"href" in project ? project.href : "/projects"}
               className="rounded-lg bg-white/[0.045] p-5 transition-transform hover:-translate-y-0.5 hover:bg-cyan-300/[0.07]"
             >
               <div className="flex items-start justify-between gap-4">
@@ -135,7 +143,7 @@ export default function Home() {
               <p className="mt-4 text-sm leading-7 text-cyan-100">
                 {project.impact}
               </p>
-            </article>
+            </Link>
           ))}
         </div>
       </section>
