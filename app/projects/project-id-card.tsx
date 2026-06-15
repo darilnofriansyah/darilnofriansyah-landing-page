@@ -8,7 +8,7 @@ type ProjectCard = {
   impact: string;
   stack: readonly string[];
   href?: string;
-  image: string;
+  image?: string;
 };
 
 type ProjectIdCardProps = {
