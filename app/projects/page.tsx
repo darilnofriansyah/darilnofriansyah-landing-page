@@ -1,31 +1,34 @@
-import { featuredProjects } from "@/lib/portfolio";
-import { ProjectIdCard } from "./project-id-card";
+import { SectionLabel } from "@/components/section-label";
+import { SystemCard } from "@/components/system-card";
+import { systems } from "@/lib/portfolio";
 
 export const metadata = {
-  title: "Projects",
-  description: "Selected portfolio projects by Daril Nofriansyah.",
+  title: "Systems",
+  description: "Active systems designed and built by Daril Nofriansyah.",
 };
 
 export default function ProjectsPage() {
   return (
-    <div className="page-enter mx-auto flex w-full max-w-6xl flex-col gap-14 px-6 py-10 lg:px-8 lg:py-16">
-      <section className="max-w-3xl space-y-5">
-        <p className="text-sm uppercase tracking-[0.35em] text-cyan-200/70">
-          Projects
-        </p>
-        <h1 className="text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl">
-          Three current projects, built while learning in public.
-        </h1>
-        <p className="text-lg leading-8 text-slate-300">
-          The focus right now is practical: automation, useful interfaces, and
-          a portfolio foundation that can keep growing with the work.
+    <div className="page-shell page-enter">
+      <section>
+        <SectionLabel>System index</SectionLabel>
+        <h1 className="page-title mt-6">Active systems and working infrastructure.</h1>
+        <p className="page-intro mt-7">
+          Practical products, backend infrastructure, automation, and quality
+          engineering—each organized around a responsibility it is intended to
+          carry.
         </p>
       </section>
 
-      <section className="grid gap-6">
-        {featuredProjects.map((project, index) => (
-          <ProjectIdCard key={project.title} project={project} index={index} />
-        ))}
+      <section aria-labelledby="systems-heading" className="mt-16">
+        <h2 id="systems-heading" className="sr-only">
+          Systems
+        </h2>
+        <div className="grid items-start gap-5 md:grid-cols-2">
+          {systems.map((system) => (
+            <SystemCard key={system.title} system={system} />
+          ))}
+        </div>
       </section>
     </div>
   );

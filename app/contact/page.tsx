@@ -1,77 +1,76 @@
 import Link from "next/link";
+import { CopyEmailButton } from "@/components/copy-email-button";
+import { SectionLabel } from "@/components/section-label";
 import { contactMethods } from "@/lib/portfolio";
 
 export const metadata = {
   title: "Contact",
-  description: "Contact Daril Nofriansyah for portfolio and frontend work.",
+  description:
+    "Contact Daril Nofriansyah about systems, automation, backend services, and quality engineering.",
 };
 
 export default function ContactPage() {
   return (
-    <div className="page-enter mx-auto flex w-full max-w-6xl flex-col gap-14 px-6 py-10 lg:px-8 lg:py-16">
-      <section className="max-w-3xl space-y-5">
-        <p className="text-sm uppercase tracking-[0.35em] text-cyan-200/70">
-          Contact
-        </p>
-        <h1 className="text-5xl font-semibold leading-[0.95] tracking-tight text-white sm:text-6xl">
-          Let&apos;s build something sharp and memorable.
-        </h1>
-        <p className="text-lg leading-8 text-slate-300">
-          Reach out for portfolio redesigns, landing pages, or product sites
-          that need a more confident visual identity.
+    <div className="page-shell page-enter">
+      <section>
+        <SectionLabel>Contact</SectionLabel>
+        <h1 className="page-title mt-6">Let&apos;s discuss a system worth building.</h1>
+        <p className="page-intro mt-7">
+          Reach out about automation, backend platforms, AI-integrated product work,
+          quality engineering systems, or a responsibility that needs a better
+          technical foundation.
         </p>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-[0.36fr_0.64fr]">
-        <div className="rounded-lg bg-white/[0.045] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)]">
-          <p className="text-xs uppercase tracking-[0.28em] text-sky-200/70">
-            Contact details
-          </p>
-          <div className="mt-5 space-y-3">
+      <section className="mt-16 grid gap-5 lg:grid-cols-[0.82fr_1.18fr]">
+        <div className="surface p-6 sm:p-8">
+          <SectionLabel>Contact details</SectionLabel>
+          <div className="mt-6 divide-y divide-zinc-200 border-y border-zinc-200">
             {contactMethods.map((method) => (
               <a
                 key={method.label}
                 href={method.href}
-                className="flex items-center justify-between rounded-lg bg-white/[0.045] px-4 py-4 transition-colors hover:bg-cyan-300/[0.08]"
+                className="group block py-5 focus-visible:outline-offset-2"
+                aria-label={`Contact Daril via ${method.label}`}
               >
-                <div>
-                  <p className="text-sm uppercase tracking-[0.28em] text-sky-200/55">
-                    {method.label}
-                  </p>
-                  <p className="mt-2 text-sm text-white">{method.value}</p>
-                </div>
-                <span className="text-cyan-200">↗</span>
+                <p className="metadata-label">{method.label}</p>
+                <p className="mt-2 break-words text-sm font-medium text-zinc-900 group-hover:text-indigo-600">
+                  {method.value}
+                </p>
               </a>
             ))}
           </div>
         </div>
 
-        <div className="rounded-lg bg-white/[0.055] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.07)]">
-          <p className="text-xs uppercase tracking-[0.28em] text-sky-200/70">
-            Quick note
-          </p>
-          <div className="mt-5 space-y-4 text-sm leading-7 text-slate-300">
+        <div className="surface p-6 sm:p-8 lg:p-10">
+          <SectionLabel>Start with context</SectionLabel>
+          <h2 className="mt-5 text-3xl font-semibold tracking-[-0.035em] text-zinc-950">
+            A short description of the responsibility is enough.
+          </h2>
+          <div className="mt-6 max-w-xl space-y-4 text-sm leading-7 text-zinc-600">
             <p>
-              I like projects with a clear audience, a focused message, and a
-              visual direction that feels intentional from the first screen.
+              Share what needs to work, who it needs to help, and what currently
+              makes the problem difficult.
             </p>
             <p>
-              If you already have a brief, send it over. If not, a short
-              description of the goal is enough to start.
+              Existing architecture, constraints, and a preferred delivery
+              window are useful when available, but not required for a first
+              conversation.
             </p>
           </div>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-wrap gap-3">
             <a
               href="mailto:darilnofriansyah@gmail.com"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-cyan-300 px-6 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(103,232,249,0.22)] transition-transform hover:-translate-y-0.5 hover:bg-cyan-200"
+              className="button button-dark h-12 px-6"
             >
               Email Daril
             </a>
+            <CopyEmailButton email="darilnofriansyah@gmail.com" />
             <Link
               href="/projects"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-white/[0.08] px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-colors hover:bg-cyan-300/[0.12]"
+              className="button h-12 border border-zinc-300 bg-white px-6 text-zinc-900 hover:bg-zinc-100"
             >
-              Review projects
+              Review systems
             </Link>
           </div>
         </div>

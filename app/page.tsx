@@ -1,152 +1,102 @@
 import Link from "next/link";
-import { capabilities, featuredProjects, site } from "@/lib/portfolio";
-import Image from "next/image";
-
-const mainProject =
-  featuredProjects.find((project) => project.title === "Veyra") ??
-  featuredProjects[0];
-const secondaryProjects = featuredProjects.filter(
-  (project) => project.title !== mainProject.title,
-);
+import {
+  AboutSection,
+  ArchiveTimeline,
+  HeroSection,
+  PhilosophySection,
+} from "@/components/home-sections";
+import { NexusRelationshipDiagram } from "@/components/nexus-relationship-diagram";
+import { ResearchCard } from "@/components/research-card";
+import { SectionLabel } from "@/components/section-label";
+import { SystemCard } from "@/components/system-card";
+import { researchEntries, systems } from "@/lib/portfolio";
 
 export default function Home() {
   return (
-    <div className="page-enter mx-auto flex w-full max-w-6xl flex-col gap-20 px-6 py-10 lg:px-8 lg:py-16">
-      <section className="relative flex min-h-[calc(100vh-12rem)] flex-col items-center justify-center overflow-hidden text-center">
-        <div className="absolute inset-x-0 top-16 mx-auto h-72 max-w-3xl bg-cyan-300/10 blur-3xl" />
-        <div className="relative flex max-w-4xl flex-col items-center">
-          <div
-            aria-hidden="true"
-            className="mb-8 grid h-16 w-16 place-items-center rounded-[1.35rem] text-3xl font-semibold text-cyan-100"
-          >
-            <Image
-              src="/logo.svg"
-              alt="Daril Logo"
-              width={64}
-              height={64}
-            />
+    <div className="page-enter">
+      <HeroSection />
+      <PhilosophySection />
+
+      <section
+        id="systems"
+        className="archive-section section-space scroll-mt-24 border-t border-zinc-300"
+      >
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <SectionLabel>Active systems</SectionLabel>
+            <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-zinc-950 sm:text-5xl">
+              Systems built around clear responsibilities.
+            </h2>
           </div>
-
-          <p className="text-sm uppercase tracking-[0.35em] text-sky-200/70">
-            {site.role}
-          </p>
-          <h1 className="mt-5 text-5xl font-semibold leading-[0.92] tracking-tight text-white sm:text-6xl lg:text-7xl">
-            Daril Nofriansyah
-          </h1>
-          <h2 className="mt-5 text-2xl font-medium leading-tight text-cyan-100 sm:text-3xl">
-            Building &amp; Learning
-          </h2>
-          <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-300">
-            Building practical tools, learning the stack behind them, and
-            documenting the path from automation to deployment.
-          </p>
-
-          <div className="mt-9 flex flex-row flex-wrap justify-center gap-3">
-            <Link
-              href="/projects"
-              className="inline-flex h-12 min-w-36 items-center justify-center gap-2 rounded-full bg-cyan-300 px-6 text-sm font-semibold text-slate-950 shadow-[0_0_28px_rgba(103,232,249,0.22)] transition-transform hover:-translate-y-0.5 hover:bg-cyan-200"
-            >
-              View Projects
-              <span className="text-base leading-none">→</span>
-            </Link>
-            <Link
-              href="/contact"
-              className="inline-flex h-12 min-w-36 items-center justify-center rounded-full bg-white/[0.08] px-6 text-sm font-semibold text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-colors hover:bg-cyan-300/[0.12]"
-            >
-              Contact
-            </Link>
-          </div>
+          <Link href="/projects" className="text-link w-fit text-sm font-medium">
+            View system index
+          </Link>
         </div>
-      </section>
-
-      <section className="grid gap-8 lg:grid-cols-[0.42fr_0.58fr] lg:items-start">
-        <div className="space-y-4">
-          <p className="text-sm uppercase tracking-[0.35em] text-cyan-200/70">
-            Capabilities
-          </p>
-          <h2 className="text-3xl font-semibold text-white">
-            A sharper frame for the work.
-          </h2>
-          <p className="max-w-md text-sm leading-7 text-slate-300">
-            The page should feel like a guided workspace: readable, fast to
-            scan, and flexible enough to show different kinds of projects.
-          </p>
-        </div>
-
-        <div className="grid gap-x-8 gap-y-5 sm:grid-cols-2">
-          {capabilities.map((item) => (
-            <div key={item} className="flex gap-3 text-sm text-slate-200">
-              <span className="mt-2 h-1.5 w-1.5 rounded-full bg-cyan-200 shadow-[0_0_16px_rgba(103,232,249,0.6)]" />
-              <span>{item}</span>
-            </div>
+        <div className="mt-12 grid items-start gap-5 md:grid-cols-2">
+          {systems.map((system) => (
+            <SystemCard key={system.title} system={system} />
           ))}
         </div>
       </section>
 
-      <section className="grid gap-6 lg:grid-cols-[1.1fr_0.9fr]">
-        <article className="rounded-lg bg-white/[0.055] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]">
-          <div className="flex flex-col gap-5 sm:flex-row sm:items-start sm:justify-between">
+      <section className="border-y border-zinc-800 bg-zinc-950 text-zinc-50">
+        <div className="archive-section section-space">
+          <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
-              <p className="text-sm uppercase tracking-[0.35em] text-cyan-200/70">
-                Current project
-              </p>
-              <h2 className="mt-3 text-3xl font-semibold text-white">
-                {mainProject.title}
+              <SectionLabel className="text-zinc-400">
+                The Nexus Initiative
+              </SectionLabel>
+              <h2 className="entity-display mt-6 text-5xl font-semibold leading-[0.88] tracking-[-0.025em] sm:text-6xl lg:text-7xl">
+                Every system begins
+                <br />
+                with a responsibility.
               </h2>
+              <p className="mt-7 max-w-xl text-base leading-8 text-zinc-400">
+                Nexus is a growing family of AI-integrated systems. Each entity
+                is designed around a specific responsibility, while Nexus Core
+                provides the shared infrastructure beneath them.
+              </p>
+              <Link
+                href="/nexus"
+                className="button mt-9 h-12 border border-zinc-700 bg-zinc-900 px-6 text-zinc-50 hover:border-indigo-500 hover:bg-zinc-800"
+              >
+                Enter Nexus Archive
+              </Link>
             </div>
+            <NexusRelationshipDiagram />
+          </div>
+        </div>
+      </section>
+
+      <section className="archive-section section-space">
+        <div className="grid gap-12 lg:grid-cols-[0.42fr_1fr]">
+          <div>
+            <SectionLabel>Research</SectionLabel>
+            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-zinc-950">
+              Notes from systems in progress.
+            </h2>
+            <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-600">
+              Architecture notes, AI-integrated agent experiments, automation patterns,
+              postmortems, design studies, and technical lessons will live
+              here as they are documented.
+            </p>
             <Link
-              href="/projects"
-              className="inline-flex h-11 items-center justify-center gap-2 rounded-full bg-white/[0.08] px-5 text-sm font-medium text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-colors hover:bg-cyan-300/[0.12]"
+              href="/research"
+              className="text-link mt-7 inline-flex text-sm font-medium"
             >
-              More work
-              <span className="text-base leading-none">→</span>
+              Open research index
             </Link>
           </div>
-
-          <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-300">
-            {mainProject.summary}
-          </p>
-
-          <div className="mt-7 flex flex-wrap gap-2">
-            {mainProject.stack.map((item) => (
-              <span
-                key={item}
-                className="rounded-full bg-[#091322]/80 px-3 py-1.5 text-xs text-slate-200"
-              >
-                {item}
-              </span>
+          <div className="grid gap-x-8 md:grid-cols-3">
+            {researchEntries.map((entry) => (
+              <ResearchCard key={entry.title} entry={entry} />
             ))}
           </div>
-        </article>
-
-        <div className="grid gap-4">
-          {secondaryProjects.map((project) => (
-            <Link
-              key={project.title}
-              href={"href" in project ? project.href : "/projects"}
-              className="rounded-lg bg-white/[0.045] p-5 transition-transform hover:-translate-y-0.5 hover:bg-cyan-300/[0.07]"
-            >
-              <div className="flex items-start justify-between gap-4">
-                <div>
-                  <p className="text-xs uppercase tracking-[0.28em] text-sky-200/65">
-                    {project.type}
-                  </p>
-                  <h3 className="mt-3 text-2xl font-semibold text-white">
-                    {project.title}
-                  </h3>
-                </div>
-                <span className="text-cyan-200">↗</span>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-300">
-                {project.summary}
-              </p>
-              <p className="mt-4 text-sm leading-7 text-cyan-100">
-                {project.impact}
-              </p>
-            </Link>
-          ))}
         </div>
       </section>
+
+      <ArchiveTimeline />
+      <AboutSection />
     </div>
   );
 }
