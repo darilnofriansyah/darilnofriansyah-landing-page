@@ -6,7 +6,7 @@
 - Branch: `main`
 - Commit: `9f791ef` (`revamp`)
 - Working tree: clean before this review file
-- Tests run: none during this review
+- Checks run: `npm run lint` and `npm run build` passed
 
 ## Completed Work
 
