@@ -1,45 +1,23 @@
 import Link from "next/link";
 import {
   AboutSection,
-  ArchiveTimeline,
+  ContactCtaSection,
+  FeaturedWorkSection,
   HeroSection,
-  PhilosophySection,
 } from "@/components/home-sections";
 import { NexusRelationshipDiagram } from "@/components/nexus-relationship-diagram";
-import { ResearchCard } from "@/components/research-card";
 import { SectionLabel } from "@/components/section-label";
-import { SystemCard } from "@/components/system-card";
-import { researchEntries, systems } from "@/lib/portfolio";
 
 export default function Home() {
   return (
     <div className="page-enter">
       <HeroSection />
-      <PhilosophySection />
+      <FeaturedWorkSection />
 
       <section
-        id="systems"
-        className="archive-section section-space scroll-mt-24 border-t border-zinc-300"
+        id="nexus"
+        className="border-y border-zinc-800 bg-zinc-950 text-zinc-50"
       >
-        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
-          <div>
-            <SectionLabel>Active systems</SectionLabel>
-            <h2 className="mt-5 max-w-3xl text-4xl font-semibold tracking-[-0.045em] text-zinc-950 sm:text-5xl">
-              Systems built around clear responsibilities.
-            </h2>
-          </div>
-          <Link href="/projects" className="text-link w-fit text-sm font-medium">
-            View system index
-          </Link>
-        </div>
-        <div className="mt-12 grid items-start gap-5 md:grid-cols-2">
-          {systems.map((system) => (
-            <SystemCard key={system.title} system={system} />
-          ))}
-        </div>
-      </section>
-
-      <section className="border-y border-zinc-800 bg-zinc-950 text-zinc-50">
         <div className="archive-section section-space">
           <div className="grid gap-12 lg:grid-cols-[0.78fr_1.22fr] lg:items-start">
             <div>
@@ -68,35 +46,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="archive-section section-space">
-        <div className="grid gap-12 lg:grid-cols-[0.42fr_1fr]">
-          <div>
-            <SectionLabel>Research</SectionLabel>
-            <h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-zinc-950">
-              Notes from systems in progress.
-            </h2>
-            <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-600">
-              Architecture notes, AI-integrated agent experiments, automation patterns,
-              postmortems, design studies, and technical lessons will live
-              here as they are documented.
-            </p>
-            <Link
-              href="/research"
-              className="text-link mt-7 inline-flex text-sm font-medium"
-            >
-              Open research index
-            </Link>
-          </div>
-          <div className="grid gap-x-8 md:grid-cols-3">
-            {researchEntries.map((entry) => (
-              <ResearchCard key={entry.title} entry={entry} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <ArchiveTimeline />
       <AboutSection />
+      <ContactCtaSection />
     </div>
   );
 }

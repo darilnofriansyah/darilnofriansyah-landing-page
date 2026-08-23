@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { archivePhases, responsibilityAreas } from "@/lib/portfolio";
+import { featuredProjects } from "@/lib/portfolio";
 import { SectionLabel } from "./section-label";
 
 export function InitiativePanel() {
@@ -54,40 +54,28 @@ export function HeroSection() {
       <div className="max-w-4xl">
         <SectionLabel>Engineer · Builder · Automator</SectionLabel>
         <h1 className="mt-7 text-[clamp(2.85rem,6.4vw,6.6rem)] font-semibold leading-[0.9] tracking-[-0.065em] text-zinc-950">
-          Building systems
-          <br />
-          that augment
-          <br />
-          human capability.
+          Systems engineering for work that needs to hold up.
         </h1>
         <p className="mt-8 max-w-2xl text-base leading-8 text-zinc-600 sm:text-lg">
-          I design and build practical AI-integrated products, automation platforms,
-          backend services, and quality engineering systems from idea to
-          production.
+          I design and build automation, backend services, AI-integrated products,
+          and quality engineering systems from idea to deployment.
         </p>
-        <div className="mt-9 flex flex-wrap gap-3">
-          <Link href="/#systems" className="button button-dark h-12 px-6">
-            Explore Systems
-          </Link>
-          <a
-            href="https://github.com/darilnofriansyah"
-            className="button h-12 border border-zinc-300 bg-white px-6 text-zinc-900 hover:border-zinc-400 hover:bg-zinc-100"
-          >
-            View GitHub
-          </a>
+        <div className="hero-actions mt-9 flex flex-wrap gap-3">
+          <Link className="button" href="#featured-work">View Featured Work</Link>
+          <Link className="button button-secondary" href="/contact">Contact</Link>
         </div>
         <dl className="mt-12 grid max-w-2xl gap-5 border-t border-zinc-300 pt-6 text-sm sm:grid-cols-3">
           <div>
-            <dt className="metadata-label">Base</dt>
+            <dt className="metadata-label">Based in</dt>
             <dd className="mt-1.5 text-zinc-800">Indonesia</dd>
-          </div>
-          <div>
-            <dt className="metadata-label">Building since</dt>
-            <dd className="mt-1.5 text-zinc-800">2024</dd>
           </div>
           <div>
             <dt className="metadata-label">Current focus</dt>
             <dd className="mt-1.5 text-zinc-800">Nexus</dd>
+          </div>
+          <div>
+            <dt className="metadata-label">Availability</dt>
+            <dd className="mt-1.5 text-zinc-800">Available for collaboration</dd>
           </div>
         </dl>
       </div>
@@ -96,79 +84,64 @@ export function HeroSection() {
   );
 }
 
-export function PhilosophySection() {
+export function FeaturedWorkSection() {
   return (
-    <section className="archive-section section-space border-t border-zinc-300">
-      <div className="grid gap-12 lg:grid-cols-[0.62fr_1.38fr]">
-        <SectionLabel>Working philosophy</SectionLabel>
-        <div>
-          <h2 className="max-w-4xl text-4xl font-semibold leading-[1.04] tracking-[-0.045em] text-zinc-950 sm:text-5xl lg:text-6xl">
-            Systems should take responsibility,
-            <br />
-            not attention.
-          </h2>
-          <p className="mt-7 max-w-2xl text-base leading-8 text-zinc-600">
-            Technology should quietly handle repetitive, fragmented, and
-            error-prone responsibilities so people can focus on judgment,
-            creativity, and meaningful decisions.
-          </p>
-          <ol className="mt-12 grid border-t border-zinc-300 sm:grid-cols-2">
-            {responsibilityAreas.map((area, index) => (
-              <li
-                key={area}
-                className="flex gap-5 border-b border-zinc-200 py-5 sm:odd:pr-6 sm:even:border-l sm:even:pl-6"
-              >
-                <span className="font-mono text-[0.68rem] text-zinc-400">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
-                <span className="text-sm font-medium text-zinc-900">{area}</span>
-              </li>
-            ))}
-          </ol>
-        </div>
+    <section
+      id="featured-work"
+      className="archive-section featured-work section-space scroll-mt-24"
+    >
+      <header className="section-heading">
+        <p className="eyebrow">Selected work</p>
+        <h2>Systems built around responsibility, not decoration.</h2>
+      </header>
+
+      <div className="featured-projects">
+        {featuredProjects.map((project, index) => (
+          <article className="featured-project" key={project.title}>
+            <div className="featured-project-identity">
+              <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
+              <p>{project.type}</p>
+              <h3>{project.title}</h3>
+              <ul aria-label={`${project.title} technology`}>
+                {project.stack.map((item) => (
+                  <li className="tag" key={item}>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="featured-project-summary">
+              <p>{project.summary}</p>
+              <p>{project.impact}</p>
+              {"href" in project ? (
+                <Link className="text-link" href={project.href}>
+                  Read case study
+                </Link>
+              ) : (
+                <span>Current site</span>
+              )}
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
 }
 
-export function ArchiveTimeline() {
+export function ContactCtaSection() {
   return (
-    <section id="archive" className="archive-section section-space scroll-mt-24">
-      <div className="grid gap-12 lg:grid-cols-[0.42fr_1fr]">
-        <div>
-          <SectionLabel>System archive</SectionLabel>
-          <h2 className="mt-5 text-4xl font-semibold tracking-[-0.045em] text-zinc-950">
-            A record of systems taking shape.
-          </h2>
-          <p className="mt-5 max-w-sm text-sm leading-7 text-zinc-600">
-            Relative phases describe the progression without inventing dates or
-            milestones that are not yet documented.
-          </p>
-        </div>
-        <ol className="border-t border-zinc-300">
-          {archivePhases.map((item, index) => (
-            <li
-              key={item.title}
-              className="grid gap-3 border-b border-zinc-200 py-6 sm:grid-cols-[3rem_9rem_1fr] sm:gap-5"
-            >
-              <span className="font-mono text-[0.68rem] text-zinc-400">
-                {String(index + 1).padStart(2, "0")}
-              </span>
-              <span className="font-mono text-[0.66rem] uppercase tracking-[0.14em] text-zinc-500">
-                {item.phase}
-              </span>
-              <div>
-                <h3 className="text-base font-semibold text-zinc-950">
-                  {item.title}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-zinc-600">
-                  {item.description}
-                </p>
-              </div>
-            </li>
-          ))}
-        </ol>
-      </div>
+    <section
+      className="archive-section contact-cta section-space"
+      aria-labelledby="contact-cta-title"
+    >
+      <p className="eyebrow">Start a conversation</p>
+      <h2 id="contact-cta-title">
+        Have a system that needs a clearer technical foundation?
+      </h2>
+      <p>Share the responsibility, constraints, and what needs to work.</p>
+      <Link className="button" href="/contact">
+        Contact
+      </Link>
     </section>
   );
 }
