@@ -1539,6 +1539,11 @@ h3 {
   .veyra-nexus-return {
     grid-template-columns: minmax(0, 1fr);
   }
+
+  .veyra-spending-panel {
+    border-right: 0;
+    border-bottom: 1px solid var(--v-line);
+  }
 }
 
 @media (max-width: 767px) {
@@ -2472,6 +2477,11 @@ h3 {
   .aegis-console-grid,
   .aegis-nexus-return {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .aegis-incident {
+    border-right: 0;
+    border-bottom: 1px solid var(--a-line);
   }
 }
 
