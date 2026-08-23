@@ -69,7 +69,7 @@ function VeyraArtwork() {
         alt={VEYRA_ARTWORK.alt}
         fill
         sizes="(max-width: 767px) 92vw, (max-width: 1199px) 48vw, 44vw"
-        fetchPriority="high"
+        loading="eager"
       />
     </div>
   );
@@ -127,6 +127,13 @@ export default function VeyraPage() {
         </div>
       </section>
 
+      <dl className="project-context" aria-label="Veyra engineering context">
+        <div><dt>Purpose</dt><dd>Make spending, budget drift, and financial decisions visible in conversation.</dd></div>
+        <div><dt>Implementation</dt><dd>Telegram · n8n · Workflow Automation</dd></div>
+        <div><dt>Current status</dt><dd>Active concept</dd></div>
+        <div><dt>Evidence boundary</dt><dd>Interface behavior is demonstrated with illustrative financial data.</dd></div>
+      </dl>
+
       <section id="intelligence-preview" className="veyra-shell veyra-preview-section" aria-labelledby="preview-title">
         <header className="veyra-section-heading">
           <div>
@@ -135,6 +142,10 @@ export default function VeyraPage() {
           </div>
           <p>One view of the plan, the ledger, and the risk between them.</p>
         </header>
+
+        <p className="concept-disclosure">
+          Concept interface — all financial data below is illustrative.
+        </p>
 
         <div className="veyra-console">
           <header className="veyra-console-header">
@@ -166,6 +177,12 @@ export default function VeyraPage() {
                     />
                   ))}
                 </div>
+                <ul className="sr-only">
+                  {spending.map((value, index) => (
+                    <li key={index}>Period {index + 1}: {value}% of the illustrative chart scale</li>
+                  ))}
+                  <li>Plan threshold: Rp 6,200,000</li>
+                </ul>
                 <figcaption>Weekly spending pressure remains below plan; the final period is rising.</figcaption>
               </figure>
 

@@ -850,7 +850,7 @@ h3 {
 .veyra-console-code,
 .veyra-panel-label {
   font-family: var(--font-geist-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.15em;
@@ -871,7 +871,7 @@ h3 {
   gap: 0.65rem;
   margin-top: 2.25rem;
   font-family: var(--font-geist-mono);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.13em;
   color: #b9c2c8;
@@ -1046,16 +1046,16 @@ h3 {
 .veyra-hero-readout dt,
 .veyra-snapshot dt {
   font-family: var(--font-geist-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
-  color: #707c86;
+  color: var(--v-steel);
 }
 
 .veyra-hero-readout dd {
   margin-top: 0.4rem;
   color: #c5cbcf;
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   line-height: 1.5;
 }
 
@@ -1134,7 +1134,7 @@ h3 {
 
 .veyra-console-code,
 .veyra-panel-label {
-  color: #727e87;
+  color: var(--v-steel);
 }
 
 .veyra-console-header h3,
@@ -1151,7 +1151,7 @@ h3 {
   gap: 0.65rem;
   color: #bfc6ca;
   font-family: var(--font-geist-mono);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -1193,7 +1193,7 @@ h3 {
 .veyra-delta {
   color: var(--v-cyan);
   font-family: var(--font-geist-mono);
-  font-size: 0.64rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1215,9 +1215,9 @@ h3 {
   z-index: 2;
   border-top: 1px dashed rgba(232, 169, 75, 0.55);
   padding-top: 0.4rem;
-  color: #b48a4d;
+  color: var(--v-amber);
   font-family: var(--font-geist-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
   text-align: right;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -1249,8 +1249,8 @@ h3 {
   right: 0;
   bottom: 0.7rem;
   left: 0;
-  color: #707b84;
-  font-size: 0.66rem;
+  color: var(--v-steel);
+  font-size: 0.875rem;
   line-height: 1.4;
 }
 
@@ -1258,15 +1258,19 @@ h3 {
   margin-top: 2.25rem;
 }
 
-.veyra-budget span,
+.veyra-budget span {
+  color: var(--v-steel);
+  font-size: 0.75rem;
+}
+
 .veyra-budget p {
   color: var(--v-steel);
-  font-size: 0.68rem;
+  font-size: 0.875rem;
 }
 
 .veyra-budget strong {
   font-family: var(--font-geist-mono);
-  font-size: 0.8rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1312,7 +1316,7 @@ h3 {
   margin-top: 0.5rem;
   color: #d8dddf;
   font-family: var(--font-geist-mono);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1329,7 +1333,7 @@ h3 {
 .veyra-watch-note p {
   color: var(--v-amber);
   font-family: var(--font-geist-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -1338,7 +1342,7 @@ h3 {
   display: block;
   margin-top: 0.7rem;
   color: #c3c9cd;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-weight: 500;
   line-height: 1.7;
 }
@@ -1352,9 +1356,9 @@ h3 {
 }
 
 .veyra-table-heading > p {
-  color: #707b84;
+  color: var(--v-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -1391,7 +1395,7 @@ h3 {
 
 .veyra-transactions strong {
   overflow: hidden;
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   font-weight: 550;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -1399,9 +1403,9 @@ h3 {
 
 .veyra-transactions small,
 .veyra-transactions li > span:nth-child(3) {
-  color: #77828b;
+  color: var(--v-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.6rem;
+  font-size: 0.875rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -1413,7 +1417,7 @@ h3 {
 .veyra-transactions data {
   text-align: right;
   font-family: var(--font-geist-mono);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -1442,9 +1446,9 @@ h3 {
 .veyra-intervention-index,
 .veyra-interventions div > p,
 .veyra-interventions li > strong {
-  color: #727d86;
+  color: var(--v-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -1458,7 +1462,7 @@ h3 {
 
 .veyra-interventions li > p {
   color: var(--v-steel);
-  font-size: 0.78rem;
+  font-size: 0.875rem;
   line-height: 1.7;
 }
 
@@ -1526,6 +1530,15 @@ h3 {
   .veyra-artwork { object-position: 54% 42%; transform: scale(1.55) translate(-1%, 19%); }
   .veyra-console-grid { grid-template-columns: minmax(0, 1.35fr) minmax(15rem, 0.65fr); }
   .veyra-interventions li { grid-template-columns: 2rem minmax(10rem, 0.8fr) minmax(13rem, 1fr) 4.5rem; gap: 1.25rem; }
+}
+
+@media (max-width: 1023px) {
+  .veyra-identity,
+  .veyra-section-heading,
+  .veyra-console-grid,
+  .veyra-nexus-return {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 767px) {
