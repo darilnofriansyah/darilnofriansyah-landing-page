@@ -104,6 +104,69 @@ summary:focus-visible {
   padding-block: 4rem 6rem;
 }
 
+.project-context {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  width: min(100%, 80rem);
+  margin-inline: auto;
+  border-block: 1px solid var(--a-line, var(--v-line));
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.project-context div {
+  min-width: 0;
+  padding-inline: 1rem;
+}
+
+.project-context div:first-child {
+  padding-left: 0;
+}
+
+.project-context div + div {
+  border-left: 1px solid var(--a-line, var(--v-line));
+}
+
+.project-context dt {
+  color: var(--a-steel, var(--v-steel));
+  font-family: var(--font-geist-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-context dd {
+  margin-top: 0.55rem;
+  color: var(--a-white, var(--v-white));
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.concept-disclosure {
+  margin-top: 2rem;
+  color: var(--a-steel, var(--v-steel));
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 767px) {
+  .project-context {
+    grid-template-columns: 1fr;
+  }
+
+  .project-context div,
+  .project-context div:first-child {
+    padding-inline: 0;
+  }
+
+  .project-context div + div {
+    margin-top: 1rem;
+    border-top: 1px solid var(--a-line, var(--v-line));
+    border-left: 0;
+    padding-top: 1rem;
+  }
+}
+
 .page-title {
   max-width: 56rem;
   font-size: clamp(2.8rem, 7vw, 5.75rem);
@@ -1685,8 +1748,9 @@ h3 {
 .aegis-console-code,
 .aegis-panel-label {
   font-family: var(--font-geist-mono);
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   font-weight: 500;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.15em;
 }
@@ -1706,7 +1770,8 @@ h3 {
   align-items: center;
   gap: 0.65rem;
   font-family: var(--font-geist-mono);
-  font-size: 0.66rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.11em;
 }
@@ -1779,7 +1844,7 @@ h3 {
   padding-block: 0.6rem;
   border-bottom: 1px solid var(--a-line-strong);
   color: #b7c0c6;
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   font-weight: 550;
   transition: border-color 180ms ease, color 180ms ease;
 }
@@ -1908,9 +1973,10 @@ h3 {
 
 .aegis-hero-readout dt,
 .aegis-incident-facts dt {
-  color: #707c86;
+  color: var(--a-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -1918,7 +1984,7 @@ h3 {
 .aegis-hero-readout dd {
   margin-top: 0.4rem;
   color: #c5cbcf;
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   line-height: 1.5;
 }
 
@@ -1997,7 +2063,7 @@ h3 {
 
 .aegis-console-code,
 .aegis-panel-label {
-  color: #727e87;
+  color: var(--a-steel);
 }
 
 .aegis-console-header h3 {
@@ -2046,7 +2112,8 @@ h3 {
   gap: 0.55rem;
   color: var(--a-amber);
   font-family: var(--font-geist-mono);
-  font-size: 0.62rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.08em;
 }
@@ -2086,7 +2153,7 @@ h3 {
   overflow-wrap: anywhere;
   color: #d1d6d9;
   font-family: var(--font-geist-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
 }
 
@@ -2110,7 +2177,7 @@ h3 {
   max-width: 45rem;
   margin-top: 0.8rem;
   color: var(--a-steel);
-  font-size: 0.82rem;
+  font-size: 0.875rem;
   line-height: 1.75;
   text-wrap: pretty;
 }
@@ -2123,9 +2190,10 @@ h3 {
 }
 
 .aegis-diagnostic dt {
-  color: #727e87;
+  color: var(--a-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -2133,7 +2201,7 @@ h3 {
 .aegis-diagnostic dd {
   margin-top: 0.45rem;
   color: #c3c9cd;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   line-height: 1.6;
 }
 
@@ -2176,7 +2244,7 @@ h3 {
 .aegis-service-health strong {
   overflow: hidden;
   font-family: var(--font-geist-mono);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2184,9 +2252,10 @@ h3 {
 
 .aegis-service-health small,
 .aegis-service-health data {
-  color: #727e87;
+  color: var(--a-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.58rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   font-variant-numeric: tabular-nums;
@@ -2213,7 +2282,7 @@ h3 {
   justify-content: space-between;
   gap: 1rem;
   color: #bfc6ca;
-  font-size: 0.68rem;
+  font-size: 0.875rem;
 }
 
 .aegis-recovery strong {
@@ -2237,9 +2306,9 @@ h3 {
 
 .aegis-recovery p {
   margin-top: 0.65rem;
-  color: #727e87;
+  color: var(--a-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.58rem;
+  font-size: 0.875rem;
   line-height: 1.6;
   text-transform: uppercase;
   letter-spacing: 0.08em;
@@ -2291,9 +2360,10 @@ h3 {
 
 .aegis-sequence-index,
 .aegis-containment-sequence strong {
-  color: #727d86;
+  color: var(--a-steel);
   font-family: var(--font-geist-mono);
-  font-size: 0.6rem;
+  font-size: 0.75rem;
+  line-height: 1.4;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -2308,7 +2378,7 @@ h3 {
   min-height: 3.6rem;
   margin-top: 0.65rem;
   color: var(--a-steel);
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   line-height: 1.65;
 }
 
@@ -2381,6 +2451,15 @@ h3 {
   .aegis-title { font-size: clamp(6.5rem, 14vw, 9rem); }
   .aegis-artwork { object-position: 54% 42%; transform: scale(1.4) translate(1%, 16%); }
   .aegis-console-grid { grid-template-columns: minmax(0, 1.35fr) minmax(16rem, 0.65fr); }
+}
+
+@media (max-width: 1023px) {
+  .aegis-identity,
+  .aegis-section-heading,
+  .aegis-console-grid,
+  .aegis-nexus-return {
+    grid-template-columns: minmax(0, 1fr);
+  }
 }
 
 @media (max-width: 767px) {

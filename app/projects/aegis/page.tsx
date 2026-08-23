@@ -47,7 +47,7 @@ function AegisArtwork() {
         alt={AEGIS_ARTWORK.alt}
         fill
         sizes="(max-width: 767px) 100vw, (max-width: 1199px) 48vw, 50vw"
-        fetchPriority="high"
+        loading="eager"
       />
     </div>
   );
@@ -104,6 +104,13 @@ export default function AegisPage() {
         </div>
       </section>
 
+      <dl className="project-context" aria-label="Aegis engineering context">
+        <div><dt>Purpose</dt><dd>Surface workflow failures and keep recovery paths visible.</dd></div>
+        <div><dt>Implementation</dt><dd>Telegram Bot · n8n · System Monitoring</dd></div>
+        <div><dt>Current status</dt><dd>Active concept</dd></div>
+        <div><dt>Evidence boundary</dt><dd>Interface behavior is demonstrated with illustrative operational data.</dd></div>
+      </dl>
+
       <section id="system-health" className="aegis-shell aegis-health-section" aria-labelledby="health-title">
         <header className="aegis-section-heading">
           <div>
@@ -112,6 +119,10 @@ export default function AegisPage() {
           </div>
           <p>A focused view of the fault, its reach, and the containment already in place.</p>
         </header>
+
+        <p className="concept-disclosure">
+          Concept interface — all operational data below is illustrative.
+        </p>
 
         <div className="aegis-console">
           <header className="aegis-console-header">
